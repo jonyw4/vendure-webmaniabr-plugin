@@ -23,6 +23,9 @@
   "peerDependencies": {
     "@vendure/core": ">=0.13.1"
   },
+  "dependencies": {
+    "webmaniabr-js": "^1.0.0"
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "9.1.1",
     "@types/jest": "26.0.4",
