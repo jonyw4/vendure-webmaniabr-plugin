@@ -24,7 +24,7 @@
     "@vendure/core": ">=0.13.1"
   },
   "dependencies": {
-    "webmaniabr-js": "^1.0.0"
+    "webmaniabr-js": "1.0.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "9.1.1",

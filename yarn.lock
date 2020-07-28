@@ -9893,10 +9893,10 @@ webidl-conversions@^6.1.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
 
-webmaniabr-js@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/webmaniabr-js/-/webmaniabr-js-1.0.0.tgz#0dde5f0c0f91563c95826f51539302b41e26ebe9"
-  integrity sha512-dXfNmPelGhr558lK7PiD0MZe/HvI0mhJLsCPHd3kq2mfcuT6hGgpN5FBz3uueKKvY82/auJaJZPQD5dF5gJKpA==
+webmaniabr-js@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webmaniabr-js/-/webmaniabr-js-1.0.1.tgz#77eea8b136317a596e5821ff4ba40c0ca2eab3b4"
+  integrity sha512-dUicuY4bNsZ8ULbHtgbXYYNOz8NzuABk7ksGX2pBoKqJnnUK1kVl/cT4TfM0ATfFGDfyRt1u9/inllMH4PNt1A==
   dependencies:
     axios "^0.19.2"
     universal-base64 "^2.1.0"
