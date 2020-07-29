@@ -18,7 +18,8 @@
     "declaration": true,
     "removeComments": true,
     "sourceMap": true,
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "noImplicitAny": false
   },
   "include": [
     "./src/**/*.ts"
