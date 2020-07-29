@@ -25,7 +25,7 @@
     "@vendure-advanced-shipping/core": ">=2.1.1"
   },
   "dependencies": {
-    "webmaniabr-js": "1.0.2"
+    "webmaniabr-js": "1.0.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "9.1.1",
