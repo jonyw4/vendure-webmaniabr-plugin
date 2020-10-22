@@ -11,11 +11,9 @@
 	"extensions": [
 		"christian-kohler.path-intellisense",
     "christian-kohler.npm-intellisense",
-    "github.vscode-pull-request-github",
     "mhutchie.git-graph",
     "dbaeumer.vscode-eslint",
     "joelday.docthis",
-    "naumovs.color-highlight",
     "esbenp.prettier-vscode",
     "mikehanson.auto-barrel",
     "streetsidesoftware.code-spell-checker",
