@@ -1,8 +1,10 @@
-import { VendurePlugin, PluginCommonModule } from '@vendure/core';
-import { createCustomValidationProcess } from './custom-validation-proccess';
+import {
+  VendurePlugin,
+  PluginCommonModule,
+  FulfillmentState
+} from '@vendure/core';
+import { createCustomFulfillmentProcess } from './custom-fulfillment-proccess';
 import { WebmaniaBRPluginOptions } from './types';
-import injectCustomFields from './injectCustomFields';
-import customFields from './customFields';
 
 /**
  * This plugin create integration with WebmaniaBR API.
@@ -16,20 +18,22 @@ import customFields from './customFields';
 @VendurePlugin({
   imports: [PluginCommonModule],
   configuration: (config) => {
-    config.orderOptions.process.push(
-      createCustomValidationProcess(WebmaniaBRPlugin.options)
+    config.shippingOptions.customFulfillmentProcess?.push(
+      createCustomFulfillmentProcess(WebmaniaBRPlugin.options)
     );
-    return injectCustomFields(config, customFields);
+    return config;
   }
 })
 export class WebmaniaBRPlugin {
-  private static options: WebmaniaBRPluginOptions;
+  private static options: WebmaniaBRPluginOptions<any>;
 
   /**
    * @description
    * Set the plugin options.
    */
-  static init(options: WebmaniaBRPluginOptions): typeof WebmaniaBRPlugin {
+  static init<I extends FulfillmentState>(
+    options: WebmaniaBRPluginOptions<I>
+  ): typeof WebmaniaBRPlugin {
     WebmaniaBRPlugin.options = options;
     return this;
   }

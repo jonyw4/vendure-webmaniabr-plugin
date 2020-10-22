@@ -1,37 +1,35 @@
-import { Product, Address, Order } from '@vendure/core';
-import { ProductCustomFields as AdvancedShippingProductCustomFields } from '@vendure-advanced-shipping/core/lib/src/types/generated-admin-schema';
+import {
+  FulfillmentState,
+  FulfillmentTransitionData,
+  InjectableStrategy
+} from '@vendure/core';
+import { Request, Response } from 'webmaniabr-js/lib/types';
 
-export interface WebmaniaBRPluginOptions {
+export type WebmaniaBRPluginOptions<
+  T extends FulfillmentState
+> = InjectableStrategy & {
   consumerKey: string;
   consumerSecret: string;
   accessToken: string;
   accessTokenSecret: string;
   timeout: number;
   ambiente: 'produção' | 'homologação';
-}
-
-interface ProductCustomFields {
-  classeImposto?: string | null | undefined;
-  ncm?: string | null | undefined;
-  origem?: string | null | undefined;
-}
-export type ProductWithCustomFields = Product & {
-  customFields: ProductCustomFields & AdvancedShippingProductCustomFields;
-};
-export type AddressWithCustomFields = Address & {
-  customFields: {
-    isCompany?: boolean | null | undefined;
-    cpfCnpj?: string | null | undefined;
-    rgIE?: string | null | undefined;
-    telephone?: string | null | undefined;
-    addressNumber?: string | null | undefined;
-    addressComplemento?: string | null | undefined;
-    uf?: string | null | undefined;
-  };
-};
-
-export type OrderWithCustomFields = Order & {
-  customFields: {
-    nfeUuid?: string | null | undefined;
+  /**
+   * When and how you want to trigger the creation of NFe in Fulfillment process
+   */
+  createNfe: {
+    toState: T;
+    fromState: T;
+    /**
+     * Use this fn to map your order and fulfillment data with the creation of NFe
+     */
+    map: (data: FulfillmentTransitionData) => Request.CreateNotaFiscal;
+    /**
+     * Use this fn to save information returned from NFe and order in database or something like that
+     */
+    save: (
+      fulfillmentTransitionData: FulfillmentTransitionData,
+      nfeData: Response.CreateNotaFiscal
+    ) => Promise<string | boolean | void> | string | boolean | void;
   };
 };
